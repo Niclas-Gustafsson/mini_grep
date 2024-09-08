@@ -30,4 +30,21 @@ impl Config {
             return Err("Not enough arguments, try using the '-h' for help.");
         }
     }
+
+    pub fn display_help_options() {
+        let option = "-i".yellow();
+        let query = "tomatoes".yellow();
+        let filename = "recipe.txt".yellow();
+
+        println!("--------------------| OPTIONS |--------------------");
+        println!("Basic usage:");
+        println!("[path-to-executable] [OPTION] [QUERY] [FILENAME]   |");
+        println!("Example: ./mini_grep.exe {} {} {}", option, query, filename );
+        println!("\n");
+        println!("| CMD       | DESC                                 |");
+        println!("| -h        Displays help list                     |");
+        println!("| -c        Makes search case-sesnsitive.          |");
+        println!("| -i        Makes search case-insensitive          |");
+        println!("| -l        Returns all the lines containing query |");
+    }
 }

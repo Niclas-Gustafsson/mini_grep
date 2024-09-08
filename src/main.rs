@@ -11,7 +11,7 @@ fn main() {
 
     if args.len() == 2 && &args[1] == "-h" {
         //user asking for help. Render options in the terminal
-        
+        Config::display_help_options();
 
         process::exit(0)
     }
