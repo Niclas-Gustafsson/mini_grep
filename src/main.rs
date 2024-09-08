@@ -10,9 +10,8 @@ fn main() {
     println!(" Args{:?}", args);
 
     if args.len() == 2 && &args[1] == "-h" {
-        //user asking for help. Render options in the terminal
+        //user asking for help. Render options in the terminal and exit program to be re-run
         Config::display_help_options();
-
         process::exit(0)
     }
     

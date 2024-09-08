@@ -1,11 +1,6 @@
 use std::{error::Error, fs};
-// use std::env;
 use colored::*;
 
-// #[derive(PartialEq, Debug)]
-// enum GrepOption {
-
-// }
 #[derive(Debug)]
 pub struct Config {
     pub query: String,
@@ -33,11 +28,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
             },
             _ =>  None,
         };
-        //Value from result moved to results_to_print. Results is dropped after this
-        // results_to_print = results;
-    //    results
     }
-
   
     if let Some(results) = results {
 
@@ -66,8 +57,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
 impl Config {
     pub fn new(args: &[String]) -> Result<Self, &str> {
-        println!("{:?}", args);
-        //if option is provided make Config.option(Some(String))
+       
         if args.len() == 4 {
             let option = args[1].clone();
             let query = args[2].clone();
@@ -81,20 +71,6 @@ impl Config {
             return Err("Not enough arguments, try using the '-h' for help.");
         }
     }
-
-/*     pub fn parse_option(&self) {
-        //ref dereferences the value inside of the Option, borrowing the value instead of moving it.
-        if let Some(ref option) = self.option {
-            match option.as_str() {
-                "-c" => println!("Case sensitive chosen"), 
-                "-i" => println!("Case insensitive chosen"), 
-                "-l" => println!("Show lines option"),
-                _ => println!("Invalid option"),
-            }
-        } else {
-            println!("No option provided");
-        }
-    } */
 
     fn search_case_sensitive <'a>(&self, content: &'a str) -> Vec<&'a str>{
         let mut results = Vec::new();
@@ -136,12 +112,10 @@ impl Config {
         results
     }
 
-
     pub fn display_help_options() {
         let option = "-i".yellow();
         let query = "tomatoes".yellow();
         let filename = "recipe.txt".yellow();
-
         println!("--------------------| OPTIONS |--------------------");
         println!("Basic usage:");
         println!("[path-to-executable] [OPTION] [QUERY] [FILENAME]   |");
